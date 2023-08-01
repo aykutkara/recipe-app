@@ -1,0 +1,9 @@
+<div class="dropdown">
+  <button (click)="toggleDropdown()" class="dropdown-toggle">
+    {{data[0].title}}
+    <i class="fas fa-caret-down"></i>
+  </button>
+  <ul *ngIf="isDropdownOpen" class="dropdown-menu">
+    <li *ngFor="let option of data[0].options" (click)="handleOptionClick(option)" >{{option}}</li>
+  </ul>
+</div>

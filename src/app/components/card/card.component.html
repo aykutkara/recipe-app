@@ -1,0 +1,9 @@
+<div class="cardComponent" [class.active]="isActive">
+  <div class="card-data ">
+    <h3 class="cardTitle">{{data.name | summary:30}}</h3>
+    <p class="cardDescription" [class.active]="isActive">{{data.description | summary:40}}</p>
+  </div>
+  <div class="card-image">
+    <img [src]="data.imagePath" alt="">
+  </div>
+</div>

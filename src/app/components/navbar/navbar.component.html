@@ -1,0 +1,11 @@
+<div class="mainDiv">
+  <nav class="appNavbar">
+    <a class="navbar-element" id="page-name">Recipe Book</a>
+    <a (click)="changeActive()" routerLink="recipes" class="navbar-element {{isActive}}">Recipes</a>
+    <a (click)="changeActive()" routerLink="shopping-list" class="navbar-element {{!isActive}}">Shopping List</a>
+    <button class="navbarBtn navbar-element">
+      <p class="navbarBtn-p">Manage</p>
+      <i class="fas fa-caret-down navbarBtn-i"></i>
+    </button>
+  </nav>
+</div>

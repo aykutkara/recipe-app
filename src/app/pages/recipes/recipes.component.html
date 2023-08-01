@@ -1,0 +1,55 @@
+<div class="pageContent" >
+  <div class="leftContent" >
+    <button class="newRecipeBtn" id="newRecipeBtn" (click)="showInputDivFunc()">New Recipe</button>
+    <hr class="leftContentHr">
+    <div class="foodList" >
+      <li class="cardList" *ngFor="let card of cards" style="list-style: none">
+        <app-card [isActive]="card === selectedCard" [data]="card" (click)="showFoodInfosFunc(card)"></app-card>
+      </li>
+    </div>
+  </div>
+  <div class="rightContent" id="right-content">
+    <p *ngIf="showPTag" id="rightP">Please select a Recipe!</p>
+    <div *ngIf="showInputDiv" class="addRecipe" id="add-recipe">
+    <form [formGroup]="recipeForm" (ngSubmit)="saveMeal()" *ngIf="recipeForm">
+        <div class="rightContentButtons">
+          <button type="submit" class="rightBtn" id="save-btn" >Save</button>
+          <button class="rightBtn" id="cancel-btn" (click)="showPTagFunc()">Cancel</button>
+        </div>
+        <div class="rightContentInputs">
+          <div class="rightContentInput" id="name-div-input">
+            <label for="name-input" class="rightLabel">Name</label>
+            <input type="text" id="name-input" class="rightInput" formControlName="name" [ngClass]="{ 'invalid-input': recipeForm.get('name')?.invalid && recipeForm.get('name')?.touched }"/>
+          </div>
+          <div class="rightContentInput" id="imagePath-div-input">
+            <label for="imagePath-input" class="rightLabel">Image URL</label>
+            <input type="text" id="imagePath-input" class="rightInput" formControlName="imagePath" [ngClass]="{ 'invalid-input': recipeForm.get('imagePath')?.invalid && recipeForm.get('imagePath')?.touched }" />
+            <img [src]="recipeForm.value?.imagePath" alt="" style="height: 200px; width: 300px;" *ngIf="recipeForm.get('imagePath')?.valid">
+          </div>
+          <div class="rightContentInput" id="description-div-input">
+            <label for="description-input" class="rightL  abel">Description</label>
+            <textarea id="description-input" class="rightInput" formControlName="description" [ngClass]="{ 'invalid-input': recipeForm.get('description')?.invalid && recipeForm.get('description')?.touched }"></textarea>
+          </div>
+          <div id="ingredients-div" *ngFor="let abc of ingredients.controls; let i = index;">
+            <div [formGroup]="abc">
+              <input class="ingredientInput" type="text" placeholder="Name" formControlName ="name" [ngClass]="{ 'invalid-input': abc.get('name')?.invalid && abc.get('name')?.touched }">
+              <input id="amount-input" class="ingredientInput" type="number" placeholder="Amount" formControlName="amount" [ngClass]="{ 'invalid-input': abc.get('amount')?.invalid && abc.get('amount')?.touched }">
+              <button type="button" id="delete-ingredient" (click)="deleteIngredient(i)">X</button>
+            </div>
+          </div>
+          <hr class="rightContentHr">
+          <button type="button" class="addIngredientBtn" (click)="addIngredient('',0)">Add Ingredient</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="showFoodInfos " id="show-recipe">
+      <img id="recipe-img" [src]="selectedCard?.imagePath" alt="">
+      <h1 id="recipe-name-h1">{{selectedCard?.name}}</h1>
+      <app-custom-dropdown (valueToParent)="getValueCustomDropdown($event)" [data]="manageRecipeButtonData"></app-custom-dropdown>
+      <p id="recipe-name-p">{{selectedCard?.description}}</p>
+      <div id="food-ingredients">
+        <app-list *ngFor="let ingredient of selectedCard?.ingredients" [value]="ingredient"></app-list>
+      </div>
+    </div>
+  </div>
+</div>

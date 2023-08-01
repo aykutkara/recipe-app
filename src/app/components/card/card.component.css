@@ -1,0 +1,38 @@
+.cardComponent{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(180, 175, 175, 0.8);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  min-height: 4rem;
+}
+.cardComponent:hover{
+  background-color: #F5F5F5;
+}
+.cardComponent.active{
+  background-color: #337AB7;
+  color: white;
+}
+.card-data{
+  max-width: 70%;
+}
+.card-image img{
+  width: 90px;
+  margin: 0 .5rem;
+}
+.cardTitle{
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin: 0 .5rem;
+}
+.cardDescription{
+  font-size: 0.9rem;
+  margin: 0.4rem .5rem;
+  max-height: 10rem;
+  color: #555559;
+}
+.cardDescription.active{
+  color: #C7DDEB;
+}

@@ -1,0 +1,96 @@
+.shoppingPage{
+  padding: 2rem 4rem;
+  width: 75%;
+}
+.shopping-inputs{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.inputLabel{
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+.shpI{
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+.shopping-input{
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  outline: none;
+  border: 1px solid rgba(180, 175, 175, 0.8);
+}
+.shopping-input.-name{
+  min-width: 20rem;
+}
+.shopping-input:focus{
+  border: 1px solid #66afe9;
+  box-shadow: inset 0 1px 1px #00000013, 0 0 8px #66afe999;
+}
+#shopping-button-add{
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  outline: none;
+  background-color: #95D195;
+  color: white;
+  font-weight: bold;
+  cursor: no-drop;
+}
+.shopping-button.-clear{
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  outline: none;
+  color: #fff;
+  background-color: #337ab7;
+  border:1px solid #2e6da4;
+  cursor: pointer;
+}
+.shopping-button.-clear:hover{
+  background-color: #286090;
+}
+.recipesHr{
+  margin: 1.5rem 0;
+  opacity: 0.3;
+}
+.shopping-button.-delete{
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  cursor: no-drop;
+}
+#update-buttons button{
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+#shopping-button-update{
+  border: 1px solid #4cae4c;
+  background-color: #5cb85c;
+}
+#shopping-button-update:hover{
+  background-color: #449D44;
+}
+#shopping-button-delete{
+  border: 1px solid #d43f3a;
+  background-color: #d9534f;
+}
+#shopping-button-delete:hover{
+  background-color: #c9302c;
+}
+#shopping-button-clear{
+  outline: none;
+  background-color: #337ab7;
+  border:1px solid #2e6da4;
+}
+#shopping-button-clear:hover{
+  background-color: #286090;
+}

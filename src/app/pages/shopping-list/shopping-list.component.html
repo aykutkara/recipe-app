@@ -1,0 +1,25 @@
+<div class="shoppingPage">
+  <div class="shopping-inputs">
+    <div class="shpI">
+      <label class="inputLabel" for="name">Name</label>
+      <input [(ngModel)]="ingredient.name" class="shopping-input -name" type="text" id="name" value="">
+    </div>
+    <div class="shpI">
+      <label class="inputLabel" for="amount">Amount</label>
+      <input [(ngModel)]="ingredient.amount" class="shopping-input" type="number" id="amount" value="">
+    </div>
+  </div>
+  <div id="shopping-buttons">
+    <div id="default-buttons" *ngIf="showDefaultButtons">
+      <button id="shopping-button-add" (click)="saveNewIngredient()"  [disabled]="!isValid()" [ngStyle]="{'background-color': isValid() ? '#5cb85c' : '', 'cursor':isValid()? 'pointer':''}">Add</button>
+      <button (click)="clearButton()" class="shopping-button -clear">Clear</button>
+    </div>
+    <div id="update-buttons" *ngIf="showUpdateButtons">
+      <button (click)="updateButton()" id="shopping-button-update">Update</button>
+      <button (click)="deleteButton()" id="shopping-button-delete">Delete</button>
+      <button (click)="clearButton()" id="shopping-button-clear">Clear</button>
+    </div>
+  </div>
+  <hr class="recipesHr">
+  <app-list (click)="showIngredientFeatures(ingredient)" *ngFor="let ingredient of ingredientList" [value]="ingredient"></app-list>
+</div>
